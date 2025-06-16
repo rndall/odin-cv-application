@@ -8,11 +8,56 @@ const App = () => {
             alt=""
           />
         </div>
-        <div>
+
+        <section>
           <h1>Chanelle Moon</h1>
-          <p>KPOP Idol</p>
-        </div>
+          <p>chanelle.moon@email.com</p>
+          <p>+1 (310) 555-0123</p>
+        </section>
       </header>
+
+      <main>
+        <section>
+          <h2>Education</h2>
+
+          <div>
+            <h3>BSc in Bioengineering</h3>
+            <p>Yonsei University - Global Leaders College</p>
+            <p>2022 - 2024</p>
+          </div>
+        </section>
+
+        <section>
+          <h2>Work Experience</h2>
+
+          <div>
+            <p>Aug 2024 - present</p>
+            <p>FIFTY FIFTY (ATTRAKT)</p>
+            <h3>Main Vocalist & Rapper</h3>
+            <p>
+              Debuted Aug 30, 2024 with pre-release single Starry Night followed
+              by mini-album Love Tune
+            </p>
+          </div>
+
+          <div>
+            <p>Jun 1 - Dec 31, 2023</p>
+            <p>BELIFT LAB</p>
+            <h3>Trainee</h3>
+            <p>
+              Contestant on JTBC's R U Next?; eliminated in Episode 9, placed
+              11th
+            </p>
+          </div>
+
+          <div>
+            <p>Jan 2021 - Dec 2022</p>
+            <p>YueHua Entertainment</p>
+            <h3>Trainee</h3>
+            <p>2 years of full vocal, dance, language training</p>
+          </div>
+        </section>
+      </main>
     </div>
   )
 }
