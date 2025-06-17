@@ -1,19 +1,24 @@
+import CVSection from "./CVSection"
+import EducationItem from "./EducationItem"
+
 const CVBody = () => {
+  const education = [
+    {
+      id: crypto.randomUUID(),
+      major: "BSc in Bioengineering",
+      school: "Yonsei University - Global Leaders College",
+      startYear: "2022",
+      endYear: "2024",
+    },
+  ]
+
   return (
     <main className="grid gap-8 px-4 pb-6">
-      <section className="grid gap-2">
-        <h2 className="font-title text-lg font-bold uppercase">Education</h2>
-        <hr className="text-400" />
-        <div className="grid gap-4">
-          <div>
-            <h3>BSc in Bioengineering</h3>
-            <p className="font-sans font-bold">
-              Yonsei University - Global Leaders College
-            </p>
-            <p className="font-sans text-sm">2022 - 2024</p>
-          </div>
-        </div>
-      </section>
+      <CVSection title="Education">
+        {education.map((e) => (
+          <EducationItem {...e} key={e.id} />
+        ))}
+      </CVSection>
 
       <section className="grid gap-2">
         <h2 className="font-title text-lg font-bold uppercase">
