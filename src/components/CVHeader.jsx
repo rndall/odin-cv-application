@@ -15,7 +15,7 @@ const CVHeader = () => {
 
         <div className="font-title grid grow gap-2.5 ps-16 pe-4 pt-2 font-bold">
           <h1 className="text-3xl uppercase">Chanelle Moon</h1>
-          <div className="text-lg">
+          <address className="text-lg not-italic">
             <div className="flex items-center gap-2">
               <AtSymbolIcon className="size-6" />
               <p>chanelle.moon@email.com</p>
@@ -24,7 +24,7 @@ const CVHeader = () => {
               <PhoneIcon className="size-6" />
               <p>+1 (310) 555-0123</p>
             </div>
-          </div>
+          </address>
         </div>
       </section>
     </header>
