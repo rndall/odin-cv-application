@@ -1,11 +1,15 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #d4dee6;
+  --color-200: #d5dee6;
+  --color-300: #737373;
+  --color-400: #464a4e;
+  --color-600: #241d19;
 
   --font-title: "Tenor Sans", sans-serif;
 }
 
 body {
   font-family: Poppins, sans-serif;
+  color: var(--color-400);
 }
