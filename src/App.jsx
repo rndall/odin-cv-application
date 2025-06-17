@@ -3,8 +3,8 @@ import { PhoneIcon } from "@heroicons/react/24/outline"
 
 const App = () => {
   return (
-    <div className="min-h-dvh py-6">
-      <div className="mx-auto grid max-w-3xl gap-12 shadow-2xl">
+    <div className="py-6">
+      <div className="mx-auto flex min-h-222 max-w-3xl flex-col gap-12 shadow-2xl">
         <header className="mt-14">
           <section className="bg-200 flex h-44 items-center">
             <div className="flex size-60 items-center justify-center rounded-tr-full rounded-br-full bg-white">
