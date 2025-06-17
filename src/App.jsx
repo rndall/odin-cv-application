@@ -15,7 +15,7 @@ const App = () => {
               />
             </div>
 
-            <div className="font-title grid gap-2.5 ps-16 pt-2 font-bold">
+            <div className="font-title grid grow gap-2.5 ps-16 pe-4 pt-2 font-bold">
               <h1 className="text-3xl uppercase">Chanelle Moon</h1>
               <div className="text-lg">
                 <div className="flex items-center gap-2">
