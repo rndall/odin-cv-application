@@ -1,3 +1,6 @@
+import { AtSymbolIcon } from "@heroicons/react/24/outline"
+import { PhoneIcon } from "@heroicons/react/24/outline"
+
 const App = () => {
   return (
     <div className="min-h-dvh py-6">
@@ -15,8 +18,14 @@ const App = () => {
             <div className="font-title grid gap-2.5 ps-16 pt-2 font-bold">
               <h1 className="text-3xl uppercase">Chanelle Moon</h1>
               <div className="text-lg">
-                <p>chanelle.moon@email.com</p>
-                <p>+1 (310) 555-0123</p>
+                <div className="flex items-center gap-2">
+                  <AtSymbolIcon className="size-6" />
+                  <p>chanelle.moon@email.com</p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <PhoneIcon className="size-6" />
+                  <p>+1 (310) 555-0123</p>
+                </div>
               </div>
             </div>
           </section>
