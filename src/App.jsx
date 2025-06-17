@@ -1,7 +1,7 @@
 const App = () => {
   return (
-    <div className="min-h-dvh">
-      <div className="mx-auto my-10 max-w-3xl shadow-2xl">
+    <div className="min-h-dvh py-10">
+      <div className="mx-auto grid max-w-3xl gap-12 shadow-2xl">
         <header className="mt-14">
           <section className="bg-200 flex h-44 items-center">
             <div className="flex size-60 items-center justify-center rounded-tr-full rounded-br-full bg-white">
@@ -14,7 +14,7 @@ const App = () => {
 
             <div className="font-title grid gap-2.5 ps-16 pt-2 font-bold">
               <h1 className="text-3xl uppercase">Chanelle Moon</h1>
-              <div>
+              <div className="text-lg">
                 <p>chanelle.moon@email.com</p>
                 <p>+1 (310) 555-0123</p>
               </div>
@@ -22,14 +22,20 @@ const App = () => {
           </section>
         </header>
 
-        <main>
-          <section>
-            <h2>Education</h2>
-
-            <div>
-              <h3>BSc in Bioengineering</h3>
-              <p>Yonsei University - Global Leaders College</p>
-              <p>2022 - 2024</p>
+        <main className="grid gap-10 px-4">
+          <section className="grid gap-2">
+            <h2 className="font-title text-lg font-bold uppercase">
+              Education
+            </h2>
+            <hr className="text-400" />
+            <div className="grid gap-4">
+              <div>
+                <h3>BSc in Bioengineering</h3>
+                <p className="font-sans font-bold">
+                  Yonsei University - Global Leaders College
+                </p>
+                <p className="font-sans text-sm">2022 - 2024</p>
+              </div>
             </div>
           </section>
 
