@@ -12,6 +12,9 @@ const CVHeader = () => {
     phoneNumber: "",
   })
 
+  const handleEditInfo = (e) =>
+    setGeneralInfo({ ...generalInfo, [e.target.id]: e.target.value })
+
   const handleSubmit = (e) => {
     e.preventDefault()
     setEditMode(false)
@@ -50,38 +53,32 @@ const CVHeader = () => {
             <input
               className="text-3xl uppercase"
               placeholder="Name"
+              id="name"
               value={generalInfo.name}
-              onChange={(e) =>
-                setGeneralInfo({ ...generalInfo, name: e.target.value })
-              }
-            ></input>
+              onChange={(e) => handleEditInfo(e)}
+            />
             <address className="text-lg not-italic">
               <div className="flex items-center gap-2">
                 <AtSymbolIcon className="size-6" />
                 <input
                   className="basis-3/5"
                   type="email"
+                  id="email"
                   placeholder="name@email.com"
                   value={generalInfo.email}
-                  onChange={(e) =>
-                    setGeneralInfo({ ...generalInfo, email: e.target.value })
-                  }
-                ></input>
+                  onChange={(e) => handleEditInfo(e)}
+                />
               </div>
               <div className="flex items-center gap-2">
                 <PhoneIcon className="size-6" />
                 <input
                   className="basis-3/5"
                   type="tel"
+                  id="phoneNumber"
                   placeholder="09XXXXXXXXX"
                   value={generalInfo.phoneNumber}
-                  onChange={(e) =>
-                    setGeneralInfo({
-                      ...generalInfo,
-                      phoneNumber: e.target.value,
-                    })
-                  }
-                ></input>
+                  onChange={(e) => handleEditInfo(e)}
+                />
               </div>
             </address>
             <button className="hidden"></button>
