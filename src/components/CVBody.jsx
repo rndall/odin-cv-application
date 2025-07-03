@@ -1,18 +1,8 @@
+import CVEducationSection from "./CVEducationSection"
 import CVSection from "./CVSection"
-import EducationItem from "./EducationItem"
 import WorkItem from "./WorkItem"
 
 const CVBody = () => {
-  const education = [
-    {
-      id: crypto.randomUUID(),
-      major: "BSc in Bioengineering",
-      school: "Yonsei University - Global Leaders College",
-      startYear: "2022",
-      endYear: "2024",
-    },
-  ]
-
   const work = [
     {
       id: crypto.randomUUID(),
@@ -44,11 +34,7 @@ const CVBody = () => {
 
   return (
     <main className="grid gap-8 px-4 pb-6">
-      <CVSection title="Education">
-        {education.map((e) => (
-          <EducationItem {...e} key={e.id} />
-        ))}
-      </CVSection>
+      <CVEducationSection />
 
       <CVSection title="Work Experience">
         {work.map((w) => (
