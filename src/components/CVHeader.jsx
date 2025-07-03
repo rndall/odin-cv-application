@@ -1,10 +1,39 @@
+import { useState } from "react"
 import { AtSymbolIcon } from "@heroicons/react/24/outline"
 import { PhoneIcon } from "@heroicons/react/24/outline"
 
 const CVHeader = () => {
+  const [showEditBtn, setShowEditBtn] = useState(false)
+  const [editMode, setEditMode] = useState(false)
+
+  const [generalInfo, setGeneralInfo] = useState({
+    name: "",
+    email: "",
+    phoneNumber: "",
+  })
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    setEditMode(false)
+  }
+
   return (
     <header className="mt-14">
-      <section className="bg-200 flex h-44 items-center">
+      <section
+        onMouseEnter={() => setShowEditBtn(true)}
+        onMouseLeave={() => setShowEditBtn(false)}
+        className="bg-200 relative flex h-44 items-center"
+      >
+        {showEditBtn && (
+          <button
+            onClick={() => setEditMode(!editMode)}
+            className={`${editMode ? "bg-blue-500 hover:bg-blue-600" : "bg-400 hover:bg-600"} absolute bottom-1/6 left-4/5 cursor-pointer rounded-full px-8 py-1 text-white transition`}
+            type={editMode ? "submit" : "button"}
+          >
+            {editMode ? "Submit" : "Edit"}
+          </button>
+        )}
+
         <div className="flex size-60 items-center justify-center rounded-tr-full rounded-br-full bg-white">
           <img
             className="size-48 rounded-full object-cover"
@@ -13,19 +42,65 @@ const CVHeader = () => {
           />
         </div>
 
-        <div className="font-title grid grow gap-2.5 ps-16 pe-4 pt-2 font-bold">
-          <h1 className="text-3xl uppercase">Chanelle Moon</h1>
-          <address className="text-lg not-italic">
-            <div className="flex items-center gap-2">
-              <AtSymbolIcon className="size-6" />
-              <p>chanelle.moon@email.com</p>
-            </div>
-            <div className="flex items-center gap-2">
-              <PhoneIcon className="size-6" />
-              <p>+1 (310) 555-0123</p>
-            </div>
-          </address>
-        </div>
+        {editMode ? (
+          <form
+            onSubmit={handleSubmit}
+            className="font-title grid grow gap-2.5 ps-16 pe-4 pt-2 font-bold"
+          >
+            <input
+              className="text-3xl uppercase"
+              placeholder="Name"
+              value={generalInfo.name}
+              onChange={(e) =>
+                setGeneralInfo({ ...generalInfo, name: e.target.value })
+              }
+            ></input>
+            <address className="text-lg not-italic">
+              <div className="flex items-center gap-2">
+                <AtSymbolIcon className="size-6" />
+                <input
+                  className="basis-3/5"
+                  type="email"
+                  placeholder="name@email.com"
+                  value={generalInfo.email}
+                  onChange={(e) =>
+                    setGeneralInfo({ ...generalInfo, email: e.target.value })
+                  }
+                ></input>
+              </div>
+              <div className="flex items-center gap-2">
+                <PhoneIcon className="size-6" />
+                <input
+                  className="basis-3/5"
+                  type="tel"
+                  placeholder="09XXXXXXXXX"
+                  value={generalInfo.phoneNumber}
+                  onChange={(e) =>
+                    setGeneralInfo({
+                      ...generalInfo,
+                      phoneNumber: e.target.value,
+                    })
+                  }
+                ></input>
+              </div>
+            </address>
+            <button className="hidden"></button>
+          </form>
+        ) : (
+          <div className="font-title grid grow gap-2.5 ps-16 pe-4 pt-2 font-bold">
+            <h1 className="h-9 text-3xl uppercase">{generalInfo.name}</h1>
+            <address className="text-lg not-italic">
+              <div className="flex h-7 items-center gap-2">
+                <AtSymbolIcon className="size-6" />
+                <p>{generalInfo.email}</p>
+              </div>
+              <div className="flex h-7 items-center gap-2">
+                <PhoneIcon className="size-6" />
+                <p>{generalInfo.phoneNumber}</p>
+              </div>
+            </address>
+          </div>
+        )}
       </section>
     </header>
   )
