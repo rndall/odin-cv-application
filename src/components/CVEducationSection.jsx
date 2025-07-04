@@ -24,6 +24,15 @@ const CVEducationSection = () => {
   ])
 
   const handleAddEducation = () => setEducation([...education, educationObj])
+  const handleEditEducation = (e, educationItemId) => {
+    const nextEducation = education.map((item) => {
+      if (item.id === educationItemId) {
+        return { ...item, [e.target.id]: e.target.value }
+      }
+      return item
+    })
+    setEducation(nextEducation)
+  }
 
   return (
     <CVSection
@@ -34,7 +43,11 @@ const CVEducationSection = () => {
       onLeave={() => setShowAddBtn(false)}
     >
       {education.map((e) => (
-        <EducationItem {...e} key={e.id} />
+        <EducationItem
+          {...e}
+          key={e.id}
+          handleEditEducation={handleEditEducation}
+        />
       ))}
     </CVSection>
   )
