@@ -18,6 +18,9 @@ const EducationItem = ({
 
   const handleSubmit = (e) => {
     e.preventDefault()
+
+    if (!major && !school && !startDate && !endDate) handleRemove()
+
     onDoneEditing()
   }
 
@@ -30,7 +33,7 @@ const EducationItem = ({
       {showActionButtons && (
         <div className="absolute top-1/4 right-6 flex gap-3">
           <button
-            onClick={isEditing ? onDoneEditing : onSetEditing}
+            onClick={isEditing ? handleSubmit : onSetEditing}
             className={`${isEditing ? "bg-blue-500 hover:bg-blue-600" : "bg-400 hover:bg-600"} cursor-pointer rounded-full px-8 py-1 text-white transition`}
           >
             {isEditing ? "Submit" : "Edit"}
