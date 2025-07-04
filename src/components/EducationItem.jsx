@@ -63,10 +63,9 @@ const EducationItem = ({
             value={school}
             onChange={(e) => handleEditEducation(e, id)}
           />
-          <p className="font-sans text-sm">
+          <div className="font-sans text-sm">
             <input
               className="max-w-26 rounded-md outline"
-              placeholder={new Date().getFullYear()}
               id="startDate"
               type="date"
               value={startDate}
@@ -75,13 +74,12 @@ const EducationItem = ({
             {" - "}
             <input
               className="max-w-26 rounded-md outline"
-              placeholder={new Date().getFullYear()}
               id="endDate"
               type="date"
               value={endDate}
               onChange={(e) => handleEditEducation(e, id)}
             />
-          </p>
+          </div>
           <button className="hidden"></button>
         </form>
       ) : (
