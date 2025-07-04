@@ -87,11 +87,11 @@ const CVHeader = () => {
             <h1 className="h-9 text-3xl uppercase">{generalInfo.name}</h1>
             <address className="text-lg not-italic">
               <div className="flex h-7 items-center gap-2">
-                <AtSymbolIcon className="size-6" />
+                {generalInfo.email && <AtSymbolIcon className="size-6" />}
                 <p>{generalInfo.email}</p>
               </div>
               <div className="flex h-7 items-center gap-2">
-                <PhoneIcon className="size-6" />
+                {generalInfo.phoneNumber && <PhoneIcon className="size-6" />}
                 <p>{generalInfo.phoneNumber}</p>
               </div>
             </address>
