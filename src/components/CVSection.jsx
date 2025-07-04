@@ -16,7 +16,7 @@ const CVSection = ({
         <button
           onClick={addEducation}
           className={
-            "absolute right-0 cursor-pointer rounded-full bg-blue-500 px-8 py-1 text-white transition hover:bg-blue-600"
+            "absolute right-2 cursor-pointer rounded-full bg-blue-500 px-8 py-1 text-white transition hover:bg-blue-600"
           }
           type="button"
         >

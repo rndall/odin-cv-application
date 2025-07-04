@@ -28,7 +28,7 @@ const EducationItem = ({
       className="relative min-h-[68px]"
     >
       {showActionButtons && (
-        <div className="absolute top-1/4 right-0 flex gap-3">
+        <div className="absolute top-1/4 right-6 flex gap-3">
           <button
             onClick={isEditing ? onDoneEditing : onSetEditing}
             className={`${isEditing ? "bg-blue-500 hover:bg-blue-600" : "bg-400 hover:bg-600"} cursor-pointer rounded-full px-8 py-1 text-white transition`}
