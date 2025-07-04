@@ -44,7 +44,7 @@ const CVEducationSection = () => {
     <CVSection
       title="Education"
       isAddBtnShown={showAddBtn}
-      addEducation={handleAddEducation}
+      addItem={handleAddEducation}
       onHover={() => setShowAddBtn(true)}
       onLeave={() => setShowAddBtn(false)}
     >

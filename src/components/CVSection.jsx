@@ -3,7 +3,7 @@ const CVSection = ({
   isAddBtnShown,
   onHover,
   onLeave,
-  addEducation,
+  addItem,
   children,
 }) => {
   return (
@@ -14,7 +14,7 @@ const CVSection = ({
     >
       {isAddBtnShown && (
         <button
-          onClick={addEducation}
+          onClick={addItem}
           className={
             "absolute right-2 cursor-pointer rounded-full bg-blue-500 px-8 py-1 text-white transition hover:bg-blue-600"
           }
