@@ -38,6 +38,9 @@ const CVEducationSection = () => {
     setEducation(nextEducation)
   }
 
+  const handleRemoveEducation = (educationItemId) =>
+    setEducation(education.filter((e) => e.id !== educationItemId))
+
   return (
     <CVSection
       title="Education"
@@ -53,6 +56,8 @@ const CVEducationSection = () => {
           isEditing={editingId === e.id}
           onSetEditing={() => setEditingId(e.id)}
           onDoneEditing={() => setEditingId(null)}
+          allowDelete={education.length > 1}
+          handleRemove={() => handleRemoveEducation(e.id)}
           handleEditEducation={handleEditEducation}
         />
       ))}
