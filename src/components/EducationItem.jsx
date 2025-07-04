@@ -1,11 +1,12 @@
 import { useState } from "react"
+import { format } from "date-fns"
 
 const EducationItem = ({
   id,
   major,
   school,
-  startYear,
-  endYear,
+  startDate,
+  endDate,
   isEditing,
   onSetEditing,
   onDoneEditing,
@@ -63,22 +64,20 @@ const EducationItem = ({
           />
           <p className="font-sans text-sm">
             <input
-              className="max-w-7.5 rounded-md outline"
+              className="max-w-26 rounded-md outline"
               placeholder={new Date().getFullYear()}
-              id="startYear"
-              type="tel"
-              maxLength={4}
-              value={startYear}
+              id="startDate"
+              type="date"
+              value={startDate}
               onChange={(e) => handleEditEducation(e, id)}
             />
             {" - "}
             <input
-              className="max-w-7.5 rounded-md outline"
+              className="max-w-26 rounded-md outline"
               placeholder={new Date().getFullYear()}
-              id="endYear"
-              type="tel"
-              maxLength={4}
-              value={endYear}
+              id="endDate"
+              type="date"
+              value={endDate}
               onChange={(e) => handleEditEducation(e, id)}
             />
           </p>
@@ -89,7 +88,9 @@ const EducationItem = ({
           <h3>{major}</h3>
           <p className="font-sans font-bold">{school}</p>
           <p className="font-sans text-sm">
-            {startYear && endYear && `${startYear} - ${endYear}`}
+            {startDate &&
+              endDate &&
+              `${format(startDate, "PP")} - ${format(endDate, "PP")}`}
           </p>
         </>
       )}

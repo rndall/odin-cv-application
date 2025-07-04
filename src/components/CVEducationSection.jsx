@@ -11,8 +11,8 @@ const CVEducationSection = () => {
       id: crypto.randomUUID(),
       major: "BSc in Bioengineering",
       school: "Yonsei University - Global Leaders College",
-      startYear: "2022",
-      endYear: "2024",
+      startDate: "2022-10-06",
+      endDate: "2024-07-04",
     },
   ])
 
@@ -21,8 +21,8 @@ const CVEducationSection = () => {
       id: crypto.randomUUID(),
       major: "",
       school: "",
-      startYear: "",
-      endYear: "",
+      startDate: "",
+      endDate: "",
     }
     setEducation([...education, newEducation])
     setEditingId(newEducation.id)
@@ -30,9 +30,8 @@ const CVEducationSection = () => {
 
   const handleEditEducation = (e, educationItemId) => {
     const nextEducation = education.map((item) => {
-      if (item.id === educationItemId) {
+      if (item.id === educationItemId)
         return { ...item, [e.target.id]: e.target.value }
-      }
       return item
     })
     setEducation(nextEducation)
