@@ -49,6 +49,7 @@ const EducationItem = ({
       {isEditing ? (
         <form className="flex max-w-7/12 flex-col" onSubmit={handleSubmit}>
           <input
+            autoFocus
             className="max-h-6 rounded-md outline"
             placeholder="BSc in Bioengineering"
             id="major"
