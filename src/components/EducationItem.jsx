@@ -28,7 +28,6 @@ const EducationItem = ({
         <button
           onClick={isEditing ? onDoneEditing : onSetEditing}
           className={`${isEditing ? "bg-blue-500 hover:bg-blue-600" : "bg-400 hover:bg-600"} absolute top-1/4 left-4/5 cursor-pointer rounded-full px-8 py-1 text-white transition`}
-          type={isEditing ? "submit" : "button"}
         >
           {isEditing ? "Submit" : "Edit"}
         </button>
