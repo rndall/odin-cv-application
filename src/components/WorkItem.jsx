@@ -19,6 +19,10 @@ const WorkItem = ({
 
   const handleSubmit = (e) => {
     e.preventDefault()
+
+    if (!startDate && !endDate && !companyName && !jobTitle && !details)
+      handleRemove()
+
     onDoneEditing()
   }
 
@@ -31,7 +35,7 @@ const WorkItem = ({
       {showActionButtons && (
         <div className="absolute top-4.5 right-6 flex gap-3">
           <button
-            onClick={isEditing ? onDoneEditing : onSetEditing}
+            onClick={isEditing ? handleSubmit : onSetEditing}
             className={`${isEditing ? "bg-blue-500 hover:bg-blue-600" : "bg-400 hover:bg-600"} cursor-pointer rounded-full px-8 py-1 text-white transition`}
           >
             {isEditing ? "Submit" : "Edit"}
