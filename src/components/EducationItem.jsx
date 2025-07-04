@@ -27,22 +27,22 @@ const EducationItem = ({
       className="relative min-h-[68px]"
     >
       {showActionButtons && (
-        <>
+        <div className="absolute top-1/4 right-0 flex gap-3">
           <button
             onClick={isEditing ? onDoneEditing : onSetEditing}
-            className={`${isEditing ? "bg-blue-500 hover:bg-blue-600" : "bg-400 hover:bg-600"} absolute top-1/4 right-1/5 cursor-pointer rounded-full px-8 py-1 text-white transition`}
+            className={`${isEditing ? "bg-blue-500 hover:bg-blue-600" : "bg-400 hover:bg-600"} cursor-pointer rounded-full px-8 py-1 text-white transition`}
           >
             {isEditing ? "Submit" : "Edit"}
           </button>
           {allowDelete && (
             <button
               onClick={handleRemove}
-              className="absolute top-1/4 right-0 cursor-pointer rounded-full bg-red-500 px-8 py-1 text-white transition hover:bg-red-600"
+              className="cursor-pointer rounded-full bg-red-500 px-8 py-1 text-white transition hover:bg-red-600"
             >
               Delete
             </button>
           )}
-        </>
+        </div>
       )}
 
       {isEditing ? (
