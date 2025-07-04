@@ -6,14 +6,16 @@ const EducationItem = ({
   school,
   startYear,
   endYear,
+  isEditing,
+  onSetEditing,
+  onDoneEditing,
   handleEditEducation,
 }) => {
   const [showEditBtn, setShowEditBtn] = useState(false)
-  const [editMode, setEditMode] = useState(!major)
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    setEditMode(false)
+    onDoneEditing()
   }
 
   return (
@@ -24,15 +26,15 @@ const EducationItem = ({
     >
       {showEditBtn && (
         <button
-          onClick={() => setEditMode(!editMode)}
-          className={`${editMode ? "bg-blue-500 hover:bg-blue-600" : "bg-400 hover:bg-600"} absolute top-1/4 left-4/5 cursor-pointer rounded-full px-8 py-1 text-white transition`}
-          type={editMode ? "submit" : "button"}
+          onClick={isEditing ? onDoneEditing : onSetEditing}
+          className={`${isEditing ? "bg-blue-500 hover:bg-blue-600" : "bg-400 hover:bg-600"} absolute top-1/4 left-4/5 cursor-pointer rounded-full px-8 py-1 text-white transition`}
+          type={isEditing ? "submit" : "button"}
         >
-          {editMode ? "Submit" : "Edit"}
+          {isEditing ? "Submit" : "Edit"}
         </button>
       )}
 
-      {editMode ? (
+      {isEditing ? (
         <form className="flex max-w-7/12 flex-col" onSubmit={handleSubmit}>
           <input
             className="max-h-6 rounded-md outline"

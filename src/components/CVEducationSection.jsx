@@ -4,14 +4,7 @@ import EducationItem from "./EducationItem"
 
 const CVEducationSection = () => {
   const [showAddBtn, setShowAddBtn] = useState(false)
-
-  const educationObj = {
-    id: crypto.randomUUID(),
-    major: "",
-    school: "",
-    startYear: "",
-    endYear: "",
-  }
+  const [editingId, setEditingId] = useState(null)
 
   const [education, setEducation] = useState([
     {
@@ -23,7 +16,18 @@ const CVEducationSection = () => {
     },
   ])
 
-  const handleAddEducation = () => setEducation([...education, educationObj])
+  const handleAddEducation = () => {
+    const newEducation = {
+      id: crypto.randomUUID(),
+      major: "",
+      school: "",
+      startYear: "",
+      endYear: "",
+    }
+    setEducation([...education, newEducation])
+    setEditingId(newEducation.id)
+  }
+
   const handleEditEducation = (e, educationItemId) => {
     const nextEducation = education.map((item) => {
       if (item.id === educationItemId) {
@@ -46,6 +50,9 @@ const CVEducationSection = () => {
         <EducationItem
           {...e}
           key={e.id}
+          isEditing={editingId === e.id}
+          onSetEditing={() => setEditingId(e.id)}
+          onDoneEditing={() => setEditingId(null)}
           handleEditEducation={handleEditEducation}
         />
       ))}
