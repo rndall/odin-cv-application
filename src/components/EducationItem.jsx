@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { format } from "date-fns"
+import { format, isToday } from "date-fns"
 
 const EducationItem = ({
   id,
@@ -90,7 +90,7 @@ const EducationItem = ({
           <p className="font-sans text-sm">
             {startDate &&
               endDate &&
-              `${format(startDate, "PP")} - ${format(endDate, "PP")}`}
+              `${format(startDate, "PP")} - ${isToday(endDate) ? "present" : format(endDate, "PP")}`}
           </p>
         </>
       )}
