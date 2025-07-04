@@ -9,7 +9,7 @@ const EducationItem = ({
   handleEditEducation,
 }) => {
   const [showEditBtn, setShowEditBtn] = useState(false)
-  const [editMode, setEditMode] = useState(false)
+  const [editMode, setEditMode] = useState(!major)
 
   const handleSubmit = (e) => {
     e.preventDefault()
