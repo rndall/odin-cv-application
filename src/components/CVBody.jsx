@@ -1,4 +1,4 @@
-import CVEducationSection from "./CVEducationSection"
+import CVEducationSection from "./education/CVEducationSection"
 import CVWorkExperienceSection from "./CVWorkExperienceSection"
 
 const CVBody = () => {

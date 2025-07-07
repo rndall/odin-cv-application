@@ -1,5 +1,5 @@
 import { useState } from "react"
-import CVSection from "./CVSection"
+import CVSection from "../CVSection"
 import EducationItem from "./EducationItem"
 
 const CVEducationSection = () => {
