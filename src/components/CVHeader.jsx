@@ -1,4 +1,5 @@
 import { useState } from "react"
+import Button from "./Button"
 import { AtSymbolIcon } from "@heroicons/react/24/outline"
 import { PhoneIcon } from "@heroicons/react/24/outline"
 
@@ -35,12 +36,13 @@ const CVHeader = () => {
         className="bg-200 relative flex h-44 items-center"
       >
         {showEditBtn && (
-          <button
+          <Button
+            variant={editMode ? "primary" : "secondary"}
             onClick={() => setEditMode(!editMode)}
-            className={`${editMode ? "bg-blue-500 hover:bg-blue-600" : "bg-400 hover:bg-600"} absolute right-6 bottom-1/6 cursor-pointer rounded-full px-8 py-1 text-white transition`}
+            styles="absolute right-6 bottom-1/6"
           >
             {editMode ? "Submit" : "Edit"}
-          </button>
+          </Button>
         )}
 
         <div className="flex size-60 items-center justify-center rounded-tr-full rounded-br-full bg-white">
@@ -67,17 +69,19 @@ const CVHeader = () => {
                 />
               </>
             ) : (
-              <label className="flex items-center rounded-full bg-blue-500 px-5 py-1 text-white transition hover:bg-blue-600">
-                Upload
-                <input
-                  type="file"
-                  name="profilePicture"
-                  id="profilePicture"
-                  accept="image/*"
-                  onChange={imageChange}
-                  hidden
-                />
-              </label>
+              <Button asChild>
+                <label className="cursor-pointer px-5 py-1">
+                  Upload
+                  <input
+                    type="file"
+                    name="profilePicture"
+                    id="profilePicture"
+                    accept="image/*"
+                    onChange={imageChange}
+                    hidden
+                  />
+                </label>
+              </Button>
             )}
           </div>
         </div>
@@ -118,7 +122,7 @@ const CVHeader = () => {
                 />
               </div>
             </address>
-            <button className="hidden"></button>
+            <Button className="hidden"></Button>
           </form>
         ) : (
           <div className="font-title grid grow gap-2.5 ps-16 pe-4 pt-2 font-bold">
