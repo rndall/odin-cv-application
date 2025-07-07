@@ -9,18 +9,6 @@
   --font-title: "Tenor Sans", sans-serif;
 }
 
-@layer utilities {
-  input[type="number"]::-webkit-inner-spin-button,
-  input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-
-  input[type="number"] {
-    -moz-appearance: textfield;
-  }
-}
-
 body {
   font-family: Poppins, sans-serif;
   color: var(--color-400);
