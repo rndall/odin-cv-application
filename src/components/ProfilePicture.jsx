@@ -3,10 +3,7 @@ import Button from "./Button"
 const ProfilePicture = ({ onChange, src }) => {
   return (
     <>
-      <Button
-        styles="absolute mx-auto opacity-0 group-hover:opacity-100"
-        asChild
-      >
+      <Button styles="absolute mx-auto " hover={{ group: "pfp" }} asChild>
         <label className="cursor-pointer px-5 py-1">
           Upload
           <input
