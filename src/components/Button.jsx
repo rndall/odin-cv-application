@@ -3,6 +3,7 @@ const Button = ({ variant, onClick, styles, asChild, children }) => {
     const variants = {
       primary: "bg-blue-500 hover:bg-blue-600",
       secondary: "bg-400 hover:bg-600",
+      destructive: "bg-red-500 hover:bg-red-600",
       hidden: "hidden",
     }
 
