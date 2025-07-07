@@ -1,44 +1,14 @@
-import { useState } from "react"
 import CVSection from "../CVSection"
 import EducationItem from "./EducationItem"
 
-const CVEducationSection = () => {
-  const [editingId, setEditingId] = useState(null)
-
-  const [education, setEducation] = useState([
-    {
-      id: crypto.randomUUID(),
-      major: "BSc in Bioengineering",
-      school: "Yonsei University - Global Leaders College",
-      startDate: "2022-10-06",
-      endDate: "2024-07-04",
-    },
-  ])
-
-  const handleAddEducation = () => {
-    const newEducation = {
-      id: crypto.randomUUID(),
-      major: "",
-      school: "",
-      startDate: "",
-      endDate: "",
-    }
-    setEducation([...education, newEducation])
-    setEditingId(newEducation.id)
-  }
-
-  const handleEditEducation = (e, educationItemId) => {
-    const nextEducation = education.map((item) => {
-      if (item.id === educationItemId)
-        return { ...item, [e.target.id]: e.target.value }
-      return item
-    })
-    setEducation(nextEducation)
-  }
-
-  const handleRemoveEducation = (educationItemId) =>
-    setEducation(education.filter((e) => e.id !== educationItemId))
-
+const CVEducationSection = ({
+  education,
+  handleAddEducation,
+  handleEditEducation,
+  handleRemoveEducation,
+  editingId,
+  setEditingId,
+}) => {
   return (
     <CVSection title="Education" addItem={handleAddEducation}>
       {education.map((e) => (

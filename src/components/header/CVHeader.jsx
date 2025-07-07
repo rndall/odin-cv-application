@@ -1,33 +1,16 @@
-import { useState } from "react"
 import Button from "../Button"
 import ProfilePicture from "./ProfilePicture"
 import CVHeaderContent from "./CVHeaderContent"
 import CVHeaderForm from "./CVHeaderForm"
 
-const CVHeader = () => {
-  const [editMode, setEditMode] = useState(false)
-
-  const [generalInfo, setGeneralInfo] = useState({
-    profilePicture: null,
-    name: "",
-    email: "",
-    phoneNumber: "",
-  })
-
-  const imageChange = (e) =>
-    setGeneralInfo({
-      ...generalInfo,
-      profilePicture: URL.createObjectURL(e.target.files[0]),
-    })
-
-  const handleEditInfo = (e) =>
-    setGeneralInfo({ ...generalInfo, [e.target.id]: e.target.value })
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    setEditMode(false)
-  }
-
+const CVHeader = ({
+  editMode,
+  setEditMode,
+  generalInfo,
+  handleEdit,
+  handleSubmit,
+  imageChange,
+}) => {
   return (
     <header className="mt-14">
       <section className="bg-200 group relative flex h-44 items-center">
@@ -73,7 +56,7 @@ const CVHeader = () => {
             name={generalInfo.name}
             email={generalInfo.email}
             phoneNumber={generalInfo.phoneNumber}
-            onChange={(e) => handleEditInfo(e)}
+            onChange={(e) => handleEdit(e)}
           />
         ) : (
           <CVHeaderContent
