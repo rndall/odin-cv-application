@@ -1,5 +1,6 @@
 import { useState } from "react"
 import Button from "./Button"
+import ProfilePicture from "./ProfilePicture"
 import { AtSymbolIcon } from "@heroicons/react/24/outline"
 import { PhoneIcon } from "@heroicons/react/24/outline"
 
@@ -50,24 +51,10 @@ const CVHeader = () => {
             className={`${!generalInfo.profilePicture && "border-3"} group relative flex size-50 items-center justify-center rounded-full`}
           >
             {generalInfo.profilePicture ? (
-              <>
-                <label className="absolute top-1/2 left-1/2 mx-auto flex -translate-1/2 items-center rounded-full bg-blue-500 px-5 py-1 text-white opacity-0 transition group-hover:opacity-100 hover:bg-blue-600">
-                  Upload
-                  <input
-                    type="file"
-                    name="profilePicture"
-                    id="profilePicture"
-                    accept="image/*"
-                    onChange={imageChange}
-                    hidden
-                  />
-                </label>
-                <img
-                  className="h-48 w-48 rounded-full object-cover"
-                  src={generalInfo.profilePicture}
-                  alt="Profile picture"
-                />
-              </>
+              <ProfilePicture
+                onChange={imageChange}
+                src={generalInfo.profilePicture}
+              />
             ) : (
               <Button asChild>
                 <label className="cursor-pointer px-5 py-1">
@@ -122,7 +109,7 @@ const CVHeader = () => {
                 />
               </div>
             </address>
-            <Button className="hidden"></Button>
+            <Button variant="hidden"></Button>
           </form>
         ) : (
           <div className="font-title grid grow gap-2.5 ps-16 pe-4 pt-2 font-bold">
