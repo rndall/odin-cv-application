@@ -4,6 +4,7 @@ import ProfilePicture from "./ProfilePicture"
 import { AtSymbolIcon } from "@heroicons/react/24/outline"
 import { PhoneIcon } from "@heroicons/react/24/outline"
 import Form from "./Form"
+import CVHeaderContent from "./CVHeaderContent"
 
 const CVHeader = () => {
   const [showEditBtn, setShowEditBtn] = useState(false)
@@ -115,19 +116,11 @@ const CVHeader = () => {
             </address>
           </Form>
         ) : (
-          <div className="font-title grid grow gap-2.5 ps-16 pe-4 pt-2 font-bold">
-            <h1 className="h-9 text-3xl uppercase">{generalInfo.name}</h1>
-            <address className="text-lg not-italic">
-              <div className="flex h-7 items-center gap-2">
-                {generalInfo.email && <AtSymbolIcon className="size-6" />}
-                <p>{generalInfo.email}</p>
-              </div>
-              <div className="flex h-7 items-center gap-2">
-                {generalInfo.phoneNumber && <PhoneIcon className="size-6" />}
-                <p>{generalInfo.phoneNumber}</p>
-              </div>
-            </address>
-          </div>
+          <CVHeaderContent
+            name={generalInfo.name}
+            email={generalInfo.email}
+            phoneNumber={generalInfo.phoneNumber}
+          />
         )}
       </section>
     </header>
