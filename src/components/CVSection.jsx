@@ -1,3 +1,5 @@
+import Button from "./Button"
+
 const CVSection = ({
   title,
   isAddBtnShown,
@@ -13,15 +15,9 @@ const CVSection = ({
       className="relative grid gap-2"
     >
       {isAddBtnShown && (
-        <button
-          onClick={addItem}
-          className={
-            "absolute right-2 cursor-pointer rounded-full bg-blue-500 px-8 py-1 text-white transition hover:bg-blue-600"
-          }
-          type="button"
-        >
+        <Button onClick={addItem} styles="absolute right-2">
           Add {title}
-        </button>
+        </Button>
       )}
       <h2 className="font-title text-lg font-bold uppercase">{title}</h2>
       <hr className="text-400" />
