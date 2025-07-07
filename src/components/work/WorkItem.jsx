@@ -1,4 +1,3 @@
-import { useState } from "react"
 import Button from "../Button"
 import CVWorkForm from "./CVWorkForm"
 import CVWorkContent from "./CVWorkContent"
@@ -17,8 +16,6 @@ const WorkItem = ({
   handleRemove,
   handleEditWork,
 }) => {
-  const [showActionButtons, setShowActionButtons] = useState(false)
-
   const handleSubmit = (e) => {
     e.preventDefault()
 
@@ -29,24 +26,7 @@ const WorkItem = ({
   }
 
   return (
-    <div
-      onMouseEnter={() => setShowActionButtons(true)}
-      onMouseLeave={() => setShowActionButtons(false)}
-      className="relative min-h-[99px]"
-    >
-      {showActionButtons && (
-        <div className="absolute top-4.5 right-6 flex gap-3">
-          <Button onClick={isEditing ? handleSubmit : onSetEditing}>
-            {isEditing ? "Submit" : "Edit"}
-          </Button>
-          {allowDelete && (
-            <Button variant="destructive" onClick={handleRemove}>
-              Delete
-            </Button>
-          )}
-        </div>
-      )}
-
+    <div className="group/item relative min-h-[99px]">
       {isEditing ? (
         <CVWorkForm
           onSubmit={handleSubmit}
@@ -66,6 +46,17 @@ const WorkItem = ({
           details={details}
         />
       )}
+
+      <div className="absolute top-4.5 right-6 flex gap-3 opacity-0 transition group-hover/item:opacity-100">
+        <Button onClick={isEditing ? handleSubmit : onSetEditing}>
+          {isEditing ? "Submit" : "Edit"}
+        </Button>
+        {allowDelete && (
+          <Button variant="destructive" onClick={handleRemove}>
+            Delete
+          </Button>
+        )}
+      </div>
     </div>
   )
 }

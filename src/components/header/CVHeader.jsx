@@ -5,7 +5,6 @@ import CVHeaderContent from "./CVHeaderContent"
 import CVHeaderForm from "./CVHeaderForm"
 
 const CVHeader = () => {
-  const [showEditBtn, setShowEditBtn] = useState(false)
   const [editMode, setEditMode] = useState(false)
 
   const [generalInfo, setGeneralInfo] = useState({
@@ -31,24 +30,19 @@ const CVHeader = () => {
 
   return (
     <header className="mt-14">
-      <section
-        onMouseEnter={() => setShowEditBtn(true)}
-        onMouseLeave={() => setShowEditBtn(false)}
-        className="bg-200 relative flex h-44 items-center"
-      >
-        {showEditBtn && (
-          <Button
-            variant={editMode ? "primary" : "secondary"}
-            onClick={() => setEditMode(!editMode)}
-            styles="absolute right-6 bottom-1/6"
-          >
-            {editMode ? "Submit" : "Edit"}
-          </Button>
-        )}
+      <section className="bg-200 group relative flex h-44 items-center">
+        <Button
+          variant={editMode ? "primary" : "secondary"}
+          onClick={() => setEditMode(!editMode)}
+          styles="absolute right-6 bottom-1/6 "
+          hover
+        >
+          {editMode ? "Submit" : "Edit"}
+        </Button>
 
         <div className="flex size-60 items-center justify-center rounded-tr-full rounded-br-full bg-white">
           <div
-            className={`${!generalInfo.profilePicture && "border-3"} group relative flex size-50 items-center justify-center rounded-full`}
+            className={`${!generalInfo.profilePicture && "border-3"} group/pfp relative flex size-50 items-center justify-center rounded-full`}
           >
             {generalInfo.profilePicture ? (
               <ProfilePicture

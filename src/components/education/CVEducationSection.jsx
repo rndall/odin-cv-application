@@ -3,7 +3,6 @@ import CVSection from "../CVSection"
 import EducationItem from "./EducationItem"
 
 const CVEducationSection = () => {
-  const [showAddBtn, setShowAddBtn] = useState(false)
   const [editingId, setEditingId] = useState(null)
 
   const [education, setEducation] = useState([
@@ -41,13 +40,7 @@ const CVEducationSection = () => {
     setEducation(education.filter((e) => e.id !== educationItemId))
 
   return (
-    <CVSection
-      title="Education"
-      isAddBtnShown={showAddBtn}
-      addItem={handleAddEducation}
-      onHover={() => setShowAddBtn(true)}
-      onLeave={() => setShowAddBtn(false)}
-    >
+    <CVSection title="Education" addItem={handleAddEducation}>
       {education.map((e) => (
         <EducationItem
           {...e}

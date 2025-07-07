@@ -1,4 +1,3 @@
-import { useState } from "react"
 import Button from "../Button"
 import CVEducationForm from "./CVEducationForm"
 import CVEducationContent from "./CVEducationContent"
@@ -16,8 +15,6 @@ const EducationItem = ({
   handleRemove,
   handleEditEducation,
 }) => {
-  const [showActionButtons, setShowActionButtons] = useState(false)
-
   const handleSubmit = (e) => {
     e.preventDefault()
 
@@ -27,27 +24,7 @@ const EducationItem = ({
   }
 
   return (
-    <div
-      onMouseEnter={() => setShowActionButtons(true)}
-      onMouseLeave={() => setShowActionButtons(false)}
-      className="relative min-h-[68px]"
-    >
-      {showActionButtons && (
-        <div className="absolute top-1/4 right-6 flex gap-3">
-          <Button
-            variant={isEditing ? "primary" : "secondary"}
-            onClick={isEditing ? handleSubmit : onSetEditing}
-          >
-            {isEditing ? "Submit" : "Edit"}
-          </Button>
-          {allowDelete && (
-            <Button variant="destructive" onClick={handleRemove}>
-              Delete
-            </Button>
-          )}
-        </div>
-      )}
-
+    <div className="group/item relative min-h-[68px]">
       {isEditing ? (
         <CVEducationForm
           onSubmit={handleSubmit}
@@ -65,6 +42,20 @@ const EducationItem = ({
           endDate={endDate}
         />
       )}
+
+      <div className="absolute top-1/4 right-6 flex gap-3 opacity-0 transition group-hover/item:opacity-100">
+        <Button
+          variant={isEditing ? "primary" : "secondary"}
+          onClick={isEditing ? handleSubmit : onSetEditing}
+        >
+          {isEditing ? "Submit" : "Edit"}
+        </Button>
+        {allowDelete && (
+          <Button variant="destructive" onClick={handleRemove}>
+            Delete
+          </Button>
+        )}
+      </div>
     </div>
   )
 }
