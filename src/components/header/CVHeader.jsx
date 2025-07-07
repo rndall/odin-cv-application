@@ -1,6 +1,6 @@
 import { useState } from "react"
 import Button from "../Button"
-import ProfilePicture from "../ProfilePicture"
+import ProfilePicture from "./ProfilePicture"
 import CVHeaderContent from "./CVHeaderContent"
 import CVHeaderForm from "./CVHeaderForm"
 
@@ -42,7 +42,7 @@ const CVHeader = () => {
 
         <div className="flex size-60 items-center justify-center rounded-tr-full rounded-br-full bg-white">
           <div
-            className={`${!generalInfo.profilePicture && "border-3"} group/pfp relative flex size-50 items-center justify-center rounded-full`}
+            className={`${!generalInfo.profilePicture && "border-3"} group/pfp relative flex size-48 items-center justify-center rounded-full`}
           >
             {generalInfo.profilePicture ? (
               <ProfilePicture
