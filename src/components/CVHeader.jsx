@@ -3,6 +3,7 @@ import Button from "./Button"
 import ProfilePicture from "./ProfilePicture"
 import { AtSymbolIcon } from "@heroicons/react/24/outline"
 import { PhoneIcon } from "@heroicons/react/24/outline"
+import Form from "./Form"
 
 const CVHeader = () => {
   const [showEditBtn, setShowEditBtn] = useState(false)
@@ -74,7 +75,7 @@ const CVHeader = () => {
         </div>
 
         {editMode ? (
-          <form
+          <Form
             onSubmit={handleSubmit}
             className="font-title grid grow gap-2.5 ps-16 pe-4 pt-2 font-bold"
           >
@@ -82,6 +83,7 @@ const CVHeader = () => {
               className="text-3xl uppercase"
               placeholder="Name"
               id="name"
+              autoComplete="name"
               value={generalInfo.name}
               onChange={(e) => handleEditInfo(e)}
             />
@@ -93,6 +95,7 @@ const CVHeader = () => {
                   type="email"
                   id="email"
                   placeholder="name@email.com"
+                  autoComplete="email"
                   value={generalInfo.email}
                   onChange={(e) => handleEditInfo(e)}
                 />
@@ -104,13 +107,13 @@ const CVHeader = () => {
                   type="tel"
                   id="phoneNumber"
                   placeholder="09XXXXXXXXX"
+                  autoComplete="tel"
                   value={generalInfo.phoneNumber}
                   onChange={(e) => handleEditInfo(e)}
                 />
               </div>
             </address>
-            <Button variant="hidden"></Button>
-          </form>
+          </Form>
         ) : (
           <div className="font-title grid grow gap-2.5 ps-16 pe-4 pt-2 font-bold">
             <h1 className="h-9 text-3xl uppercase">{generalInfo.name}</h1>
