@@ -1,4 +1,4 @@
-import Form from "./Form"
+import Form from "../Form"
 import { AtSymbolIcon } from "@heroicons/react/24/outline"
 import { PhoneIcon } from "@heroicons/react/24/outline"
 

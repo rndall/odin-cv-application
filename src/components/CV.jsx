@@ -1,4 +1,4 @@
-import CVHeader from "./CVHeader"
+import CVHeader from "./header/CVHeader"
 import CVBody from "./CVBody"
 
 const CV = () => {

@@ -1,6 +1,6 @@
 import { useState } from "react"
-import Button from "./Button"
-import ProfilePicture from "./ProfilePicture"
+import Button from "../Button"
+import ProfilePicture from "../ProfilePicture"
 import CVHeaderContent from "./CVHeaderContent"
 import CVHeaderForm from "./CVHeaderForm"
 
