@@ -20,7 +20,7 @@ const Button = ({
   return (
     <button
       onClick={onClick}
-      className={`cursor-pointer rounded-full py-1 text-white transition ${!asChild ? "px-8" : ""} ${hover && "opacity-0"} ${!hover?.group ? "group-hover:opacity-100" : "group-hover/" + hover.group + ":opacity-100"} ${getVariantStyles()} ${styles}`}
+      className={`cursor-pointer rounded-full py-1 text-white transition ${!asChild ? "px-8" : ""} ${hover && "opacity-0"} ${hover ? (!hover.group ? "group-hover:opacity-100" : "group-hover/" + hover.group + ":opacity-100") : ""} ${getVariantStyles()} ${styles}`}
     >
       {children}
     </button>
