@@ -135,10 +135,10 @@ const CV = () => {
   }
 
   return (
-    <div className="mx-auto mt-5 flex min-h-222 max-w-3xl flex-col gap-12 rounded-md shadow-2xl">
+    <div className="relative mx-auto mt-5 flex min-h-222 max-w-3xl flex-col gap-12 rounded-md shadow-2xl">
       <Button
         onClick={fillData}
-        styles="absolute right-0 -translate-x-75 translate-y-3"
+        styles="absolute right-0 translate-x-40 translate-y-3"
       >
         Fill Data
       </Button>

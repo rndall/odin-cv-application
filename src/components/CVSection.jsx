@@ -2,7 +2,7 @@ import Button from "./Button"
 
 const CVSection = ({ title, addItem, children }) => {
   return (
-    <section className="group relative grid gap-2">
+    <section className="group grid gap-2">
       <Button onClick={addItem} styles="absolute right-2" hover>
         Add {title}
       </Button>

@@ -17,7 +17,7 @@ const CVBody = ({
   setWorkEditingId,
 }) => {
   return (
-    <main className="relative grid gap-8 px-4 pb-6">
+    <main className="grid gap-8 px-4 pb-6">
       <CVEducationSection
         education={education}
         handleAddEducation={handleAddEducation}
